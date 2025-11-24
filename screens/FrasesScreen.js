@@ -64,14 +64,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',// creme suave
+    backgroundColor: '#FFFFFF',
     padding: 24,
   },
   titulo: {
     marginBottom: 32,
     fontSize: 32,
     fontWeight: '900',
-    color: '#5B3A29', // marrom encorpado
+    color: '#5B3A29', 
     textAlign: 'center',
     letterSpacing: 0.5,
   },
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
   btn: {
     paddingHorizontal: 40,
     paddingVertical: 22,
-    backgroundColor: '#7B4F36', // marrom médio
+    backgroundColor: '#7B4F36', 
     borderRadius: 35,
     alignItems: 'center',
     justifyContent: 'center',
@@ -124,6 +124,6 @@ const styles = StyleSheet.create({
     letterSpacing: 0.5,
   },
   secBtn: {
-    backgroundColor: '#5B3A29', // marrom escuro
+    backgroundColor: '#5B3A29', 
   },
 });

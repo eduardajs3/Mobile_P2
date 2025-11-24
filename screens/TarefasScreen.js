@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { 
   View, Text, TextInput, StyleSheet, TouchableOpacity, FlatList, Modal 
 } from 'react-native';
-import * as Database from '../database/database'; // ajuste o caminho
+import * as Database from '../database/database'; 
 
 export default function TarefasScreen() {
   const [task, setTask] = useState('');
@@ -11,10 +11,8 @@ export default function TarefasScreen() {
   const [modalVisible, setModalVisible] = useState(false);
   const [taskToDelete, setTaskToDelete] = useState(null);
 
-  // Carrega tarefas ao iniciar
   const loadTasks = async () => {
     const lista = await Database.listarTarefas();
-    // Garantir que IDs sejam números
     const listaNum = lista.map(t => ({ ...t, id: Number(t.id) }));
     setTasks(listaNum);
   };
@@ -23,7 +21,6 @@ export default function TarefasScreen() {
     loadTasks();
   }, []);
 
-  // Adicionar ou editar tarefa
   const addOrEditTask = async () => {
     if (!task.trim()) return;
 
@@ -40,13 +37,11 @@ export default function TarefasScreen() {
     setTask('');
   };
 
-  // Abre modal de exclusão
   const confirmDelete = (id) => {
     setTaskToDelete(Number(id));
     setModalVisible(true);
   };
 
-  // Excluir tarefa
   const deleteTask = async () => {
     if (taskToDelete !== null) {
       await Database.deletarTarefa(taskToDelete);
@@ -57,7 +52,6 @@ export default function TarefasScreen() {
     }
   };
 
-  // Iniciar edição
   const startEdit = (item) => {
     setTask(item.titulo);
     setEditId(item.id);
@@ -98,7 +92,6 @@ export default function TarefasScreen() {
         contentContainerStyle={{ paddingBottom: 20 }}
       />
 
-      {/* Modal de confirmação */}
       <Modal
         animationType="fade"
         transparent={true}
@@ -129,22 +122,123 @@ export default function TarefasScreen() {
   );
 }
 
-// estilos permanecem iguais
+
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#FFF', padding: 20 },
-  titulo: { fontSize: 28, fontWeight: 'bold', color: '#5B3A29', marginBottom: 20, textAlign: 'center' },
-  input: { width: '100%', borderWidth: 1.5, borderColor: '#7B4F36', backgroundColor: '#FFF7EE', borderRadius: 12, paddingHorizontal: 15, height: 50, fontSize: 16, marginBottom: 15, color: '#5B3A29' },
-  button: { backgroundColor: '#7B4F36', paddingVertical: 14, borderRadius: 12, alignItems: 'center', marginBottom: 20 },
-  buttonText: { color: '#FFF', fontSize: 16, fontWeight: '600' },
-  card: { backgroundColor: '#FFF7EE', borderRadius: 15, padding: 15, marginBottom: 12, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', shadowColor: '#000', shadowOpacity: 0.08, shadowOffset: { width: 0, height: 3 }, shadowRadius: 5, elevation: 3 },
-  taskText: { fontSize: 16, color: '#5B3A29', flex: 1 },
-  actions: { flexDirection: 'row', gap: 15, marginLeft: 10 },
-  edit: { fontSize: 20 },
-  delete: { fontSize: 20 },
-  modalContainer: { flex: 1, backgroundColor: 'rgba(0,0,0,0.4)', justifyContent: 'center', alignItems: 'center' },
-  modalBox: { width: '80%', backgroundColor: '#FFF', borderRadius: 15, padding: 20, alignItems: 'center' },
-  modalText: { fontSize: 18, color: '#333', marginBottom: 20, textAlign: 'center' },
-  modalActions: { flexDirection: 'row', justifyContent: 'space-between', width: '100%' },
-  modalButton: { flex: 1, paddingVertical: 12, borderRadius: 10, marginHorizontal: 5, alignItems: 'center' },
-  modalButtonText: { color: '#FFF', fontWeight: '600', fontSize: 16 },
+  container: { 
+    flex: 1,
+    backgroundColor: '#FFF',
+    padding: 20 
+  },
+
+  titulo: { 
+    fontSize: 28, 
+    fontWeight: 'bold',
+    color: '#5B3A29', 
+    marginBottom: 20, 
+    textAlign: 'center' 
+  },
+
+  input: { 
+    width: '100%',
+    borderWidth: 1.5, 
+    borderColor: '#7B4F36', 
+    backgroundColor: '#FFF7EE', 
+    borderRadius: 12, 
+    paddingHorizontal: 15, 
+    height: 50, 
+    fontSize: 16, 
+    marginBottom: 15, 
+    color: '#5B3A29' 
+  },
+
+  button: { 
+    backgroundColor: '#7B4F36', 
+    paddingVertical: 14,
+    borderRadius: 12, 
+    alignItems: 'center', 
+    marginBottom: 20 
+  },
+
+  buttonText: { 
+    color: '#FFF', 
+    fontSize: 16, 
+    fontWeight: '600' 
+  },
+
+  card: { 
+    backgroundColor: '#FFF7EE', 
+    borderRadius: 15, 
+    padding: 15, 
+    marginBottom: 12, 
+    flexDirection: 'row', 
+    justifyContent: 'space-between', 
+    alignItems: 'center', 
+    shadowColor: '#000', 
+    shadowOpacity: 0.08, 
+    shadowOffset: { width: 0, height: 3 }, 
+    shadowRadius: 5, 
+    elevation: 3 
+  },
+
+  taskText: { 
+    fontSize: 16, 
+    color: '#5B3A29', 
+    flex: 1 
+  },
+
+  actions: { 
+    flexDirection: 'row', 
+    gap: 15, 
+    marginLeft: 10 
+  },
+
+  edit: { 
+    fontSize: 20 
+  },
+
+  delete: { 
+    fontSize: 20 
+  },
+
+  modalContainer: { 
+    flex: 1, 
+    backgroundColor: 'rgba(0,0,0,0.4)', 
+    justifyContent: 'center', 
+    alignItems: 'center' 
+  },
+
+  modalBox: { 
+    width: '80%', 
+    backgroundColor: '#FFF', 
+    borderRadius: 15, 
+    padding: 20, 
+    alignItems: 'center' 
+  },
+
+  modalText: { 
+    fontSize: 18, 
+    color: '#333', 
+    marginBottom: 20, 
+    textAlign: 'center' 
+  },
+
+  modalActions: { 
+    flexDirection: 'row', 
+    justifyContent: 'space-between', 
+    width: '100%' 
+  },
+
+  modalButton: { 
+    flex: 1, 
+    paddingVertical: 12, 
+    borderRadius: 10, 
+    marginHorizontal: 5, 
+    alignItems: 'center' 
+  },
+
+  modalButtonText: { 
+    color: '#FFF', 
+    fontWeight: '600', 
+    fontSize: 16 
+  },
 });

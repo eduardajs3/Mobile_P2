@@ -31,7 +31,6 @@ export default function LoginScreen({ navigation }) {
       return;
     }
 
-    // 🔒 Verificação de senha mínima
     if (password.length < 8) {
       setErrorMessage('A senha deve ter no mínimo 8 caracteres.');
       return;
@@ -115,13 +114,13 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 34,
     fontWeight: '700',
-    color: '#4E342E', // marrom moderno (título)
+    color: '#4E342E', 
     marginBottom: 6,
   },
 
   subtitle: {
     fontSize: 17,
-    color: '#6D4C41', // marrom suave
+    color: '#6D4C41',
     marginBottom: 40,
   },
 
@@ -131,7 +130,7 @@ const styles = StyleSheet.create({
 
   inputLabel: {
     fontSize: 14,
-    color: '#5D4037', // marrom nos labels
+    color: '#5D4037', 
     marginBottom: 6,
   },
 
@@ -139,8 +138,8 @@ const styles = StyleSheet.create({
     fontSize: 17,
     paddingVertical: 12,
     borderBottomWidth: 1,
-    borderBottomColor: '#A1887F', // marrom claro moderno
-    color: '#3E2723', // marrom escuro no texto digitado
+    borderBottomColor: '#A1887F', 
+    color: '#3E2723', 
   },
 
   errorText: {
@@ -151,7 +150,7 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    backgroundColor: '#795548', // botão marrom
+    backgroundColor: '#795548', 
     paddingVertical: 15,
     borderRadius: 14,
     alignItems: 'center',
@@ -172,7 +171,7 @@ const styles = StyleSheet.create({
   },
 
   link: {
-    color: '#795548', // link marrom
+    color: '#795548', 
     fontSize: 15,
     textAlign: 'center',
     marginTop: 18,

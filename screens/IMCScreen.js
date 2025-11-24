@@ -65,14 +65,14 @@ export default function IMCScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF', // fundo branco
+    backgroundColor: '#FFFFFF', 
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
   },
   card: {
     width: '100%',
-    backgroundColor: '#FFFFFF', // cartão branco
+    backgroundColor: '#FFFFFF', 
     borderRadius: 25,
     padding: 25,
     shadowColor: '#000',
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   input: {
-    backgroundColor: '#F5EFE6', // cor leve para input
+    backgroundColor: '#F5EFE6', 
     borderRadius: 15,
     borderWidth: 1.2,
     borderColor: '#D8C7B0',
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
   },
   resultContainer: {
     marginTop: 25,
-    backgroundColor: '#FDF7F0', // leve contraste
+    backgroundColor: '#FDF7F0', 
     borderRadius: 20,
     padding: 20,
     alignItems: 'center',

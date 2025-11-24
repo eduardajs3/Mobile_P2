@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-// Import das telas
 import LoginScreen from './screens/LoginScreen';
 import ForgotPasswordScreen from './screens/ForgotPasswordScreen';
 import RegisterScreen from './screens/RegisterScreen';
@@ -14,7 +13,7 @@ import FrasesScreen from './screens/FrasesScreen';
 import SobreScreen from './screens/SobreScreen';
 import ConversorScreen from './screens/ConversorScreen';
 
-// Import banco de dados
+
 import { criarTabelaUsers, criarTabelaTarefas } from './database/database';
 
 const Stack = createNativeStackNavigator();

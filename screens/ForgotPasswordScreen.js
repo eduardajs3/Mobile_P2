@@ -23,7 +23,6 @@ export default function ForgotPasswordScreen({ navigation }) {
       return;
     }
 
-    // 🔒 Verificação de mínimo de caracteres
     if (newPassword.length < 8) {
       setErrorMessage('A senha deve ter no mínimo 8 caracteres.');
       return;
@@ -131,7 +130,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 30,
     fontWeight: '700',
-    color: '#4E342E', // marrom elegante
+    color: '#4E342E', 
     textAlign: 'center',
     marginBottom: 35,
   },
@@ -142,7 +141,7 @@ const styles = StyleSheet.create({
 
   label: {
     fontSize: 14,
-    color: '#6D4C41', // marrom suave
+    color: '#6D4C41', 
     marginBottom: 6,
   },
 
@@ -150,8 +149,8 @@ const styles = StyleSheet.create({
     fontSize: 17,
     paddingVertical: 12,
     borderBottomWidth: 1,
-    borderBottomColor: '#A1887F', // marrom claro premium
-    color: '#3E2723', // marrom escuro
+    borderBottomColor: '#A1887F', 
+    color: '#3E2723', 
   },
 
   error: {
@@ -167,7 +166,7 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    backgroundColor: '#795548', // marrom principal
+    backgroundColor: '#795548', 
     paddingVertical: 15,
     borderRadius: 14,
     alignItems: 'center',
@@ -186,7 +185,7 @@ const styles = StyleSheet.create({
   },
 
   link: {
-    color: '#795548', // marrom moderno
+    color: '#795548', 
     fontSize: 15,
     textAlign: 'center',
     marginTop: 20,

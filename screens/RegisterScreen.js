@@ -23,7 +23,6 @@ export default function RegisterScreen({ navigation }) {
       return;
     }
 
-    // 🔒 VERIFICAÇÃO DO MÍNIMO DE 8 CARACTERES
     if (password.length < 8) {
       setErrorMessage('A senha deve ter no mínimo 8 caracteres.');
       return;
@@ -61,7 +60,6 @@ export default function RegisterScreen({ navigation }) {
 
       <Text style={styles.title}>Criar Conta</Text>
 
-      {/* Username */}
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Usuário</Text>
         <TextInput
@@ -76,7 +74,6 @@ export default function RegisterScreen({ navigation }) {
         />
       </View>
 
-      {/* Password */}
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Senha</Text>
         <TextInput
@@ -92,7 +89,6 @@ export default function RegisterScreen({ navigation }) {
         />
       </View>
 
-      {/* Confirm Password */}
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Confirmar senha</Text>
         <TextInput
@@ -108,16 +104,13 @@ export default function RegisterScreen({ navigation }) {
         />
       </View>
 
-      {/* Mensagens */}
       {errorMessage ? <Text style={styles.error}>{errorMessage}</Text> : null}
       {successMessage ? <Text style={styles.success}>{successMessage}</Text> : null}
 
-      {/* Botão */}
       <TouchableOpacity style={styles.button} onPress={handleRegister}>
         <Text style={styles.buttonText}>Registrar</Text>
       </TouchableOpacity>
 
-      {/* Voltar */}
       <TouchableOpacity onPress={() => navigation.goBack()}>
         <Text style={styles.link}>Voltar ao login</Text>
       </TouchableOpacity>
@@ -137,7 +130,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
     fontWeight: '700',
-    color: '#4E342E', // marrom elegante
+    color: '#4E342E', 
     textAlign: 'center',
     marginBottom: 35,
   },
@@ -148,7 +141,7 @@ const styles = StyleSheet.create({
 
   label: {
     fontSize: 14,
-    color: '#5D4037', // marrom médio
+    color: '#5D4037', 
     marginBottom: 6,
   },
 
@@ -156,26 +149,26 @@ const styles = StyleSheet.create({
     fontSize: 17,
     paddingVertical: 12,
     borderBottomWidth: 1,
-    borderBottomColor: '#A1887F', // marrom claro premium
-    color: '#3E2723', // texto marrom escuro
+    borderBottomColor: '#A1887F', 
+    color: '#3E2723', 
   },
 
   error: {
-    color: '#B71C1C', // vermelho elegante
+    color: '#B71C1C', 
     marginTop: -10,
     marginBottom: 12,
     fontSize: 14,
   },
 
   success: {
-    color: '#2E7D32', // verde compatível com marrom
+    color: '#2E7D32', 
     marginTop: -10,
     marginBottom: 12,
     fontSize: 14,
   },
 
   button: {
-    backgroundColor: '#795548', // botão marrom
+    backgroundColor: '#795548', 
     paddingVertical: 15,
     borderRadius: 14,
     alignItems: 'center',
@@ -194,7 +187,7 @@ const styles = StyleSheet.create({
   },
 
   link: {
-    color: '#795548', // link marrom
+    color: '#795548',
     fontSize: 15,
     textAlign: 'center',
     marginTop: 20,
