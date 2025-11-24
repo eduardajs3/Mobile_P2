@@ -23,17 +23,20 @@ export default function HomeScreen({ navigation }) {
     navigation.replace("Login");
   };
 
-  // Intercepta botão voltar do Android
+  // Intercepta botão voltar do Android corretamente
   useFocusEffect(
     React.useCallback(() => {
       const onBackPress = () => {
         setModalVisible(true); // mostra modal
-        return true; // evita ação padrão
+        return true; // impede ação padrão
       };
 
-      BackHandler.addEventListener('hardwareBackPress', onBackPress);
+      const subscription = BackHandler.addEventListener(
+        'hardwareBackPress',
+        onBackPress
+      );
 
-      return () => BackHandler.removeEventListener('hardwareBackPress', onBackPress);
+      return () => subscription.remove(); // remove listener corretamente
     }, [])
   );
 
@@ -58,6 +61,7 @@ export default function HomeScreen({ navigation }) {
         <Text style={styles.logoutText}>Sair</Text>
       </Pressable>
 
+      {/* Modal de confirmação */}
       <Modal
         animationType="fade"
         transparent={true}
@@ -139,8 +143,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 16,
   },
-
-  /* === MODAL === */
   modalContainer: { 
     flex: 1, 
     backgroundColor: 'rgba(0,0,0,0.4)', 
